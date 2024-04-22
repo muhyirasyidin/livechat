@@ -288,81 +288,81 @@
 	<article id="container" class="container p-0">
 		<!-- Begin::Header -->
 		<section class="header d-flex align-items-center justify-content-between px-3">
+			<!-- Begin::Header Info -->
 			<div class="d-flex">
+				<!-- Begin::Info Profile -->
 				<img src="https://dev-stroom.air.id/file/asset/load/jpeg/q84uzdt33t" alt="icon">
+				<!-- End::Info Profile -->
 
 				<div>
+					<!-- Begin::Info Name -->
 					<p class="header-name m-0">Livechat</p>
+					<!-- End::Info Name -->
+
+					<!-- Begin::Info Tiket -->
 					<p class="header-info m-0">Ticket #0987462</p>
+					<!-- End::Info Tiket -->
 				</div>
 			</div>
+			<!-- End::Header Info -->
 
+			<!-- Begin::Header Action -->
 			<i class="fa-solid fa-xmark btn" style="color: #fff" onclick="toggleChat()"></i>
+			<!-- End::Header Action -->
 		</section>
 		<!-- End::Header -->
 		
 		<!-- Begin::Body -->
-		<section id="body" class="body">
-			<!-- <div>
-				<div class="body-bubble first">
-					<p class="header-name m-0">Silahkan pilih topik populer berikut sesuai kendala atau pertanyaan Kakak</p>
-					<p class="body-time mb-0">07:05</p>
-				</div>
-			</div>
-			<div>
-				<div class="body-bubble">
-					<p class="header-name m-0">Silahkan pilih topik populer berikut sesuai kendala atau pertanyaan Kakak</p>
-					<p class="body-time mb-0">07:05</p>
-				</div>
-			</div>
-			<div>
-				<div class="user">
-					<div class="d-flex justify-content-end">
-						<div class="user-bubble">
-							<p class="m-0">Laporan Gangguan</p>
-							<p class="user-time mb-0">07:10 
-								<i class="fa-solid fa-check-double"></i>
-							</p>	
-						</div>
-					</div>
-				</div>
-			</div> -->
-		</section>
+		<section id="body" class="body"></section>
 		<!-- End::Body -->
 
 		<!-- Begin::Footer -->
 		<section class="footer">
+			<!-- Begin::Footer input -->
 			<div id="inputan">
 				<div class="d-flex">
+					<!-- Begin::Textarea -->
 					<textarea
 						id="textinput"
 						placeholder="Type message..."
 						ref="textarea"
 					></textarea>
+					<!-- End::Textarea -->
 	
+					<!-- Begin::Inpt Action -->
 					<button class="btn-send" onclick="sendChat()">
 						<i class="fa-solid fa-paper-plane"></i>
 					</button>
+					<!-- End::Inpt Action -->
 				</div>
 			</div>
+			<!-- End::Footer input -->
 
+			<!-- Begin::Footer Attachment -->
 			<div id="picture" style="height: 100%;">
 				<div class="d-flex align-items-center justify-content-center" style="height: 100%;">
+					<!-- Begin::Attachment Button -->
 					<button type="button" class="btn" onclick="triggerInputFile()">
 						<i class="fa-solid fa-image"></i>
 						Upload Gambar
 					</button>
+					<!-- End::Attachment Button -->
 				</div>
 			</div>
-			
+			<!-- End::Footer Attachment -->
+
+			<!-- Begin::Footer Default -->
 			<div id="default" style="height: 100%;">
 				<div class="d-flex align-items-center justify-content-center" style="height: 100%;">
+					<!-- Begin::Default Button -->
 					<button type="button" class="btn" onclick="restart()">
 						<i class="fa-solid fa-house"></i>
 						Beranda
 					</button>
+					<!-- End::Default Button -->
 				</div>
 			</div>
+			<!-- End::Footer Default -->
 		</section>
 		<!-- End::Footer -->
 	</article>
