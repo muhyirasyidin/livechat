@@ -132,7 +132,7 @@
 			line-height: 1.5;
 			font-size: 14px;
 			min-width: 70px;
-			margin: 5px 0px;
+			/* margin: 5px 0px; */
 			margin-left: 4px;
 			border-radius: 20px 20px 20px 20px;
 		}
@@ -174,16 +174,19 @@
 
 		.body .user-bubble {
 			background-color: #e5e7f3;
-			margin-right: 0.5rem;
 			/* margin-bottom: 1rem; */
-			border-radius: 20px 0px 20px 20px;
+			border-radius: 20px 20px 20px 20px;
 			padding: 0.5rem 1rem;
 			letter-spacing: 0.15px;
 			line-height: 1.5;
 			font-size: 14px;
 			max-width: 80%;
-			margin: 5px 0px;
+			/* margin: 5px 0px; */
 			margin-right: 4px;
+		}
+
+		.body .user-bubble.first {
+			border-radius: 20px 0px 20px 20px;
 		}
 		
 		.body .body-time {
@@ -201,8 +204,9 @@
 		}
 
 		.body .options {
-			padding: 0.5rem;
+			/* padding: 0.5rem; */
 			/* text-align: right; */
+			padding: 0 0.5rem;
 		}
 
 		.options > p{
@@ -502,9 +506,10 @@
 			const value = selectedOption.getAttribute('data-value')
 			const valueSplit = value.split(' ')
 
-			const parentOption = selectedOption.parentElement
+			const optionsElement = document.querySelectorAll('.options')
+			const lastOption = optionsElement[optionsElement.length - 1];
 
-			var children = parentOption.children;
+			var children = lastOption.children;
 
 			for (var i = 0; i < children.length; i++) {
 				children[i].removeAttribute('onclick');
@@ -522,10 +527,10 @@
 			}
 
 			body.innerHTML += `
-				<div>
+				<div style="margin-top: ${handleMargin('right')}">
 					<div class="user">
 						<div class="d-flex justify-content-end">
-							<div class="user-bubble">
+							<div class="user-bubble ${handleFirstClass('right')}">
 								<p class="m-0">${selectedOption.innerText}</p>
 								<p class="user-time mb-0">
 									${timeCondition(`${valueSplit[0]} ${valueSplit[1]}`)}
@@ -540,7 +545,7 @@
 			body.innerHTML += `
 				<div id="loading" class="d-flex align-items-end p-0">
 					<div>
-						<div class="body-bubble first">
+						<div class="body-bubble ${handleFirstClass('left')}">
 							<span class="dot"></span>
 							<span class="dot"></span>
 							<span class="dot"></span>
@@ -579,9 +584,9 @@
 					document.getElementById('picture').style.display = 'none'
 					document.getElementById('default').style.display = 'block'
 					body.innerHTML += `
-						<div id="body-${index}" class="d-flex align-items-end p-0">
+						<div id="body-${index}" class="d-flex align-items-end p-0 body-container" style="margin-top: ${handleMargin('left')}">
 							<div>
-								<div class="body-bubble first">
+								<div class="body-bubble ${handleFirstClass('left')}">
 									<p class="header-name m-0">${item.isi}</p>
 									<p class="body-time mb-0">${timeCondition(item.waktuPesan)}</p>
 								</div>
@@ -610,7 +615,7 @@
 						`
 						if (iPesan === pesanArray.length - 1) {
 							body.innerHTML += `
-								<div class="options">
+								<div class="options" style="margin-top: ${handleMargin('left')}">
 									${optionTemp}
 								</div>
 							`
@@ -618,9 +623,9 @@
 					})
 				} else if (item.idIsi == '0' && item.idPengguna != idPengguna) {
 					body.innerHTML += `
-						<div id="body-${index}" class="d-flex align-items-end p-0">
+						<div id="body-${index}" class="d-flex align-items-end p-0 body-container">
 							<div>
-								<div class="body-bubble first">
+								<div class="body-bubble ${handleFirstClass('left')}">
 									<p class="header-name m-0">${item.isi.replaceAll('**', '<br>')}</p>
 									<p class="body-time mb-0">${timeCondition(item.waktuPesan)}</p>
 								</div>
@@ -629,10 +634,10 @@
 					`
 				} else {
 					body.innerHTML += `
-						<div>
+						<div style="margin-top: ${handleMargin('right')}">
 							<div class="user">
 								<div class="d-flex justify-content-end">
-									<div class="user-bubble">
+									<div class="user-bubble ${handleFirstClass('right')}">
 										<p class="m-0">${item.isi}</p>
 										<p class="user-time mb-0">
 											${timeCondition(item.waktuPesan)}
@@ -646,6 +651,39 @@
 				}
 			});
 			body.scroll({ top: body.scrollHeight, behavior: 'smooth' });
+		}
+
+		const handleMargin = (condition) => {
+			const body = document.getElementById('body')
+			const previousSibling = body.children[body.children.length - 1]
+			let marginTop = '0px'
+
+			if (previousSibling) {
+				if (previousSibling && (previousSibling.classList.contains('body-container') || previousSibling.classList.contains('options'))) {
+						marginTop = condition === 'left' ? '4px' : '16px';
+				} else {
+						marginTop = condition === 'left' ? '16px' : '4px';
+				}
+			}
+
+			return marginTop
+		}
+
+		const handleFirstClass = (condition) => {
+			const body = document.getElementById('body')
+			const previousSibling = body.children[body.children.length - 1]
+
+			let classNamed = ''
+
+			if (previousSibling) {
+				if (previousSibling && (previousSibling.classList.contains('body-container') || previousSibling.classList.contains('options'))) {
+						classNamed = condition === 'left' ? '' : 'first';
+				} else {
+						classNamed = condition === 'left' ? 'first' : '';
+				}
+			}
+
+			return classNamed
 		}
 
 		const dateCondition = (time) => {
