@@ -55,7 +55,7 @@
 		
 		article.container {
 			height: calc(100vh - 100px);
-			width: 390px;
+			width: 360px;
 			/* background-color: red; */
 			background-color: #fff;
 			display: none;
@@ -78,19 +78,19 @@
 		}
 
 		.header {
-			height: 72px;
+			height: 95px;
 			background-color: #00a0c2;
 			border-radius: 16px 16px 0 0;
 			color: #fff;
+			position: relative;
 
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-			font-size: 14px;
 		}
 
 		.header img {
-			width: 40px;
-			height: 40px;
-			border-radius: 50px;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
 		}
 
 		.header div > div {
@@ -99,10 +99,22 @@
 
 		.header p.header-name {
 			font-weight: bold;
+			font-size: 18px;
+		}
+		
+		.header p.header-info {
+			font-size: 12px;
+		}
+
+		.header i {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 20px;
 		}
 
 		.body {
-			height: calc(100vh - 242px);
+			height: calc(100vh - 263px);
 
 			font-size: 14px;
 			overflow-y: auto;
@@ -125,15 +137,15 @@
 			background-color: #0eacc9;
 			/* margin: 0 0 0.5rem 0.5rem; */
 			/* border-radius: 16px; */
-			padding: 0.5rem 1rem;
-			max-width: 85%;
+			padding: 10px;
+			max-width: 90%;
 			color: #fff;
 			letter-spacing: 0.15px;
 			line-height: 1.5;
 			font-size: 14px;
 			min-width: 70px;
 			/* margin: 5px 0px; */
-			margin-left: 4px;
+			margin-left: 8px;
 			border-radius: 8px 8px 8px 8px;
 			gap: 0.2rem;
 		}
@@ -181,7 +193,7 @@
 			letter-spacing: 0.15px;
 			line-height: 1.5;
 			font-size: 14px;
-			max-width: 85%;
+			max-width: 90%;
 			/* margin: 5px 0px; */
 			margin-right: 4px;
 			gap: 0.2rem;
@@ -190,9 +202,20 @@
 		.body .user-bubble.first {
 			border-radius: 8px 0px 8px 8px;
 		}
+
+		.user-bubble img {
+			width: 224px;
+			height: 180px;
+			border-radius: 8px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			cursor: pointer;
+			object-fit: cover;
+		}
 		
 		.body .body-time {
-			font-size: 11px;
+			font-size: 10px;
 			color: #384248;
 			margin-top: 4px;
 			color: #fff;
@@ -200,7 +223,7 @@
 		}
 
 		.body .user-time {
-			font-size: 11px;
+			font-size: 10px;
 			color: #384248;
 			text-align: right;
 		}
@@ -209,35 +232,37 @@
 			/* padding: 0.5rem; */
 			/* text-align: right; */
 			padding: 0 0.5rem;
+			padding-left: 8px;
 		}
 
 		.options > p{
-			margin: 0.2rem;
+			margin: 4px;
 		}
 
 		.body .option {
 			font-size: 14px;
 			border-radius: 8px;
-			padding: 0.5rem;
+			padding: 8px 10px 8px 10px;
 			/* margin-right: 1rem; */
-			border: 1px solid #A7ACD0;
-			background-color: #F5F5FA;
-			color: #A7ACD0;
+			border: 1px solid #a6a6a6;
+			background-color: #fafaf6;
+			color: #a6a6a6;
 			/* margin-top: 0.5rem; */
 			cursor: not-allowed;
 			display: inline-block;
 			width: fit-content;
+			font-weight: 400;
 		}
 
 		.body .option.active {
 			cursor: pointer;
-			border: 1px solid #0eacc9;
-			background-color: #e7fafe;
-			color: #000;
+			border: 1px solid #0997a8;
+			background-color: #e8fafd;
+			color: #14a2ba;
 		}
 
 		.footer {
-			height: 70px;
+			height: 68px;
 			border-top: 1px solid #e1e1e1;
 			font-size: 14px;
 			border-radius: 0 0 16px 16px;
@@ -247,9 +272,9 @@
 			border: none;
 			width: 100%;
   		resize: none; /* Remove the resize handle */
-			height: 90%;
-			border-radius: 0 0 16px 16px;
+			max-height: 58px;
 			padding: 0.5rem;
+			padding-top: 1.2rem;
 		}
 
 		.footer button.btn-send {
@@ -258,10 +283,16 @@
 			background-color: #14a2ba;
 			color: #fff;
 			font-size: 14px;
-			max-height: 50px;
-			width: 50px;
-			border-radius: 15px;
+			max-height: 32px;
+			min-height: 32px;
+			max-width: 32px;
+			min-width: 32px;
+			border-radius: 4px;
 			margin: 0.5rem;
+		}
+
+		.footer button.btn-send i {
+			font-size: 14px;
 		}
 
 		.footer textarea:focus {
@@ -270,6 +301,18 @@
 		}
 
 		#inputan, #picture {
+			display: none;
+		}
+
+		#inputan div {
+			gap: 0.5rem;
+		}
+
+		#inputan div > i {
+			cursor: pointer;
+			margin-left: 1rem;
+			font-size: 20px;
+			color: #888888;
 			display: none;
 		}
 
@@ -288,75 +331,77 @@
 			cursor: pointer;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 		}
+
+		#action-button {
+			font-size: 18px;
+			color: #14a2ba;
+		}
+
+		#action-button i {
+			font-size: 20px;
+			margin-right: 8px;
+		}
+
+		#upload {
+			font-size: 18px;
+			color: #14a2ba;
+		}
+
+		#upload i {
+			font-size: 20px;
+			margin-right: 8px;
+		}
 	</style>
 </head>
 <body>
 	<!-- Begin::Container -->
 	<article id="container" class="container p-0">
 		<!-- Begin::Header -->
-		<section class="header d-flex align-items-center justify-content-between px-3">
-			<!-- Begin::Header Info -->
-			<div class="d-flex">
-				<!-- Begin::Info Profile -->
-				<img src="https://dev-stroom.air.id/file/asset/load/jpeg/q84uzdt33t" alt="icon">
-				<!-- End::Info Profile -->
+		<section>
+			<div class="header d-flex align-items-center justify-content-between px-3">
+				<!-- Begin::Header Info -->
+				<div class="d-flex">
+					<!-- Begin::Info Profile -->
+					<!-- <img src="https://dev-stroom.air.id/file/asset/load/jpeg/q84uzdt33t" alt="icon"> -->
+					<img src="icon.jpg" alt="icon">
+					<!-- End::Info Profile -->
 
-				<div>
-					<!-- Begin::Info Name -->
-					<p class="header-name m-0">Livechat</p>
-					<!-- End::Info Name -->
+					<div>
+						<!-- Begin::Info Name -->
+						<p class="header-name mt-0 mb-1">Livechat</p>
+						<!-- End::Info Name -->
 
-					<!-- Begin::Info Tiket -->
-					<p class="header-info m-0">Ticket #0987462</p>
-					<!-- End::Info Tiket -->
+						<!-- Begin::Info Tiket -->
+						<p class="header-info m-0">Ticket #0987462</p>
+						<!-- End::Info Tiket -->
+					</div>
 				</div>
-			</div>
-			<!-- End::Header Info -->
+				<!-- End::Header Info -->
 
-			<!-- Begin::Header Action -->
-			<i class="fa-solid fa-xmark btn" style="color: #fff" onclick="toggleChat()"></i>
-			<!-- End::Header Action -->
+				<!-- Begin::Header Action -->
+				<i class="fa-solid fa-xmark btn" style="color: #fff" onclick="toggleChat()"></i>
+				<!-- End::Header Action -->
+			</div>
 		</section>
 		<!-- End::Header -->
 		
 		<!-- Begin::Body -->
-		<section id="body" class="body">
-			<!-- <div id="body-1" class="d-flex align-items-end p-0 body-container" style="margin-top: 16px">
-				<div>
-					<div class="body-bubble first d-flex align-items-end">
-						<p class="header-name m-0">Apakah lampu pada perangkat berwarna merah</p>
-						<p class="body-time mb-0">17:35</p>
-					</div>
-				</div>
-			</div>
-			<div id="body-2" class="d-flex align-items-end p-0 body-container" style="margin-top: 16px">
-				<div>
-					<div class="body-bubble first d-flex align-items-end">
-						<p class="header-name m-0">Apakah lampu pada perangkat berwarna merah</p>
-						<p class="body-time mb-0">17:35</p>
-					</div>
-				</div>
-			</div>
-			<div id="body-3" class="d-flex align-items-end p-0 body-container" style="margin-top: 16px">
-				<div>
-					<div class="body-bubble first d-flex align-items-end">
-						<p class="header-name m-0">Apakah lampu pada perangkat berwarna merah</p>
-						<p class="body-time mb-0">17:35</p>
-					</div>
-				</div>
-			</div> -->
-		</section>
+		<section id="body" class="body"></section>
 		<!-- End::Body -->
 
 		<!-- Begin::Footer -->
 		<section class="footer">
 			<!-- Begin::Footer input -->
 			<div id="inputan">
-				<div class="d-flex">
+				<div class="d-flex align-items-center justify-content-around">
+					<!-- Begin::Trigger File -->
+					<i id="attachment" class="fa-solid fa-paperclip" onclick="triggerInputFile()"></i>
+					<!-- End::Trigger File -->
+
 					<!-- Begin::Textarea -->
 					<textarea
 						id="textinput"
-						placeholder="Type message..."
+						placeholder="Tulis pesan Anda..."
 						ref="textarea"
 					></textarea>
 					<!-- End::Textarea -->
@@ -387,7 +432,7 @@
 			<div id="default" style="height: 100%;">
 				<div class="d-flex align-items-center justify-content-center" style="height: 100%;">
 					<!-- Begin::Default Button -->
-					<button type="button" class="btn" onclick="restart()">
+					<button id="action-button" type="button" class="btn" onclick="restart()">
 						<i class="fa-solid fa-house"></i>
 						Beranda
 					</button>
@@ -403,6 +448,33 @@
 	<!-- Begin::File Input -->
 	<input type="file" id="fileInput" style="display:none;" accept="image/*">
 	<!-- End::File Input -->
+
+	<!-- Begin::Modal -->
+	<div class="modal fade" id="lightbox" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content" style="position: relative;">
+				<img
+					id="lightbox-img"
+					src="https://via.placeholder.com/800x600.jpg"
+					srcset="https://via.placeholder.com/800x600.jpg"
+					alt="Thumbnail"
+					style="height: 90vh; width: 100%; display: block; object-fit: contain">
+				<i 
+					data-bs-toggle="modal"
+					data-bs-target="#lightbox"
+					class="fa-solid fa-circle-xmark"
+					style="
+						position: absolute;
+						top: -10px;
+						right: -10px;
+						font-size: 32px;
+						color: #000;
+						cursor: pointer;">
+				</i>
+			</div>
+		</div>
+	</div>
+	<!-- End::Modal -->
 
 	<!-- Begin::Toggle -->
 	<div class="toggle">
@@ -504,37 +576,6 @@
 
         previousScrollTop = scrollTop; // Update previous scroll position
       });
-			
-			// bodyChat.addEventListener('scroll', () => {
-				// const scrollTop = bodyChat.scrollTop;
-        // const threshold = 200;
-
-				// if (scrollTop < threshold && !loadingMoreChat) {
-				// 	const payload = {
-				// 		idPengguna: localStorage.getItem('idPengguna') ?  localStorage.getItem('idPengguna') : '',
-				// 		idPesan: historyChat[0].idPesan
-				// 	}
-
-				// 	loadingMoreChat = true;
-
-				// 	axios.post('ichat/chat/bot/tampil', payload).then((resp) => {
-				// 		const datas = resp.data.data
-				// 		if (datas) {
-				// 			const datasTemp = []
-				// 			datas.reverse().forEach((data, index) => {
-				// 				datasTemp.unshift(data)
-
-				// 				if (index === datas.length - 1) {
-				// 					historyChat = datasTemp
-				// 				}
-				// 			});
-				// 			handleUnshiftElement(resp.data.data.reverse())
-				// 			loadingMoreChat = false
-				// 			return
-				// 		}
-				// 	})
-				// }
-			// })
 		}
 
 		const restart = () => {
@@ -585,7 +626,7 @@
       fd.append('file', fileInput.files[0], fileInput.files[0].name)
 			axios.post('https://rcrmdev.iconpln.co.id/icrm-be-cdn-dev/upload', fd, {
 				headers: {
-					Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAAHWSy47aMBSGX8XyoiuC7Di3yapJO0It0zQaYDPKxhADLsZOE7utiubdJ-NcCEXNKv7Ofy7_sS-wMVsYw0sBeZkzeTgYSVO6O6n9nu9YAeMCegH2SQFnBWRnyoVlrPlL55qaPf_5ke-UrISc79Scl1Yn6ZmOMkuoaJG27KuYgyAILNZMsEpJy1GEQxJ4YRSFbteOl6t0Y2MY92CZ92eMLKmOSiuLHHtuNNWmGYxMAu_utDnQJjX9HC7pXWnaqqm4BpBLHBQ42AXoIe4bjfmbLT2Oa3GnBcZIW8BzEHHcCGAce9FksuSk-b6zME1d_RO8jjBVPakDlzmr9bDe20ndaCpespIK85vWzaAlyEFoKHlSJXtWorthdNdlzWp6OvJ64sdzXAKwF6Nu8h9M8ttFp4_gM_s1PoCx-iLJFotNkvV7_MZ13SW8tN8ov-J8DfKnDHz59D1rfzarbn1bY-9eGiH6jNXWdA8qWSbP6wR8AGmSrR-zseSy-n-clykvW8MT_-8pd1DzM2tv51z1vV_hDHKqYYxDTCLfD4k_g-xPNYAHQvzXN0XauIJWAwAA.z0S3czoeLZ6S_lR0enAK2rAFX0vg7E2GdlGuixquBtU'
+					Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAAAHWS246bMBCGXwX5ojeNg80hWbgqqFSbZg-IEFUrcWOwA95wEphtq9W--7KGAOlB3Jhv_hn_M55X0HYxsMFrBDj1WZmmXUlckpyr04knLAJ2BIwNNo0IrCLACsJzyYouI0VB6Lo__OZfeFKVdV6uk2rNqZSWpCBSeX-8fdpJRPKeCQmhBILlrK5KST5vtBvTtLBlYa3_ZJzTg3uUUXwBe3_8x0iSOqtEJVEmRN3aqtokTUHZy_rKksp7CmMGE1rCPqrmFaHqc52qW2wy7TS01woiuvYyhYXRj9GILiWt240NaLqpDz2QXk3yOYA0HaINxJqCLFvH1_nHmGSDbJk8U6QZEGlQ2yoY2QZauHLOgp-G3pephz-C8_VL1V2V8tJnjbg8yj9djuI9oyTvfpKmnbQWRAjiG6k6V5QFVT6sBvrrlpA15JzxZtGPATVDwVvbHAo8s5JfD_mbp3xlL9PaTNXH2d1z0QxCByE8yWbsh8qtc-c9PQaO4j_-8IJhbnEnt6Xs8nxMOcSdTPju7J0gdJRPius8hN7DVHNf_z_Oqctp3-noZDaywLtQ8fqEwA92B2-YDS9Y_0hFPTp5AyvAiQA23mLdMje6uVkB9qu-AKtnb-_rKuDVlgMAAA.E_WUCOjuCKYvY8m3wyZGq--ErZNBjBLmbov_EYyWjeM'
 				}
 			}).then((resp) => {
 				const buttonUpload = document.getElementById("upload")
@@ -606,7 +647,7 @@
 						throw new Error(resp.data.message)
 					}
 
-					buttonUpload.setAttribute('data-value', item.idIsi)
+					// buttonUpload.setAttribute('data-value', item.idIsi)
 					handlePushElement(resp.data.data)
 				})
 			})
@@ -677,9 +718,9 @@
 				<div style="margin-top: ${handleMargin('right')}">
 					<div class="user">
 						<div class="d-flex justify-content-end">
-							<div class="user-bubble ${handleFirstClass('right')} d-flex align-items-end">
+							<div class="user-bubble ${handleFirstClass('right')}">
 								<p class="m-0">${selectedOption.innerText}</p>
-								<p class="user-time mb-0">
+								<p class="user-time m-0">
 									${timeCondition(`${valueSplit[0]} ${valueSplit[1]}`)}
 									<i class="fa-solid fa-check-double"></i>
 								</p>	
@@ -717,6 +758,7 @@
 			data.forEach((item, index) => {
 				if (item.kodeInput == '1') {
 					document.getElementById('inputan').style.display = 'block'
+					document.getElementById('attachment').style.display = 'none'
 					document.getElementById('picture').style.display = 'none'
 					document.getElementById('default').style.display = 'none'
 					
@@ -729,17 +771,36 @@
 
 					const buttonUpload = document.getElementById("upload")
 					buttonUpload.setAttribute('data-value', item.idIsi)
+				} else if (item.kodeInput == '4') {
+					document.getElementById('inputan').style.display = 'block'
+					document.getElementById('attachment').style.display = 'block'
+					document.getElementById('picture').style.display = 'none'
+					document.getElementById('default').style.display = 'none'
+
+					const buttonUpload = document.getElementById("upload")
+					buttonUpload.setAttribute('data-value', item.idIsi)
+
+					body.innerHTML += `
+						<div id="body-${index}" class="d-flex align-items-end p-0 body-container" style="margin-top: ${handleMargin('left')}">
+							<div class="body-bubble ${handleFirstClass('left')}">
+								<div class="d-flex align-items-end">
+									<p class="header-name m-0">${item.isi}</p>
+								</div>
+								<p class="body-time m-0">${timeCondition(item.waktuPesan)}</p>
+							</div>
+						</div>
+					`
 				} else if (item.idIsi != '0' && item.idPengguna != idPengguna) {
 					document.getElementById('inputan').style.display = 'none'
 					document.getElementById('picture').style.display = 'none'
 					document.getElementById('default').style.display = 'block'
 					body.innerHTML += `
 						<div id="body-${index}" class="d-flex align-items-end p-0 body-container" style="margin-top: ${handleMargin('left')}">
-							<div>
-								<div class="body-bubble ${handleFirstClass('left')} d-flex align-items-end">
+							<div class="body-bubble ${handleFirstClass('left')}">
+								<div class="d-flex align-items-end">
 									<p class="header-name m-0">${item.isi}</p>
-									<p class="body-time mb-0">${timeCondition(item.waktuPesan)}</p>
 								</div>
+								<p class="body-time m-0">${timeCondition(item.waktuPesan)}</p>
 							</div>
 						</div>
 					`
@@ -757,7 +818,7 @@
 						optionTemp += `
 							<p
 								id="option${pesan.idIsi}"
-								class="option ${condition === 'init' && index !== data.length - 1 ? '' : 'active'}"
+								class="option ${condition === 'init' && index !== data.length - 1 ? '' : 'active'} mx-0"
 								data-value='${item.waktuPesan} ${pesan.idIsi}'
 								onclick='handleSelectOption(${pesan.idIsi})'>
 								${pesan.isi}
@@ -774,10 +835,26 @@
 				} else if (item.idIsi == '0' && item.idPengguna != idPengguna) {
 					body.innerHTML += `
 						<div id="body-${index}" class="d-flex align-items-end p-0 body-container">
-							<div>
-								<div class="body-bubble ${handleFirstClass('left')} d-flex align-items-end">
+							<div class="body-bubble ${handleFirstClass('left')}">
+								<div class="d-flex align-items-end">
 									<p class="header-name m-0">${item.isi.replaceAll('**', '<br>')}</p>
-									<p class="body-time mb-0">${timeCondition(item.waktuPesan)}</p>
+								</div>
+								<p class="body-time m-0">${timeCondition(item.waktuPesan)}</p>
+							</div>
+						</div>
+					`
+				} else if (checkUrl(item.isi)) {
+					body.innerHTML += `
+						<div style="margin-top: ${handleMargin('right')}">
+							<div class="user">
+								<div class="d-flex justify-content-end">
+									<div class="user-bubble first px-2 ${handleFirstClass('right')}">
+										<img src="${item.isi}" alt="Thumbnail" onclick="${toggleLightbox(item.isi)}" data-bs-toggle="modal" data-bs-target="#lightbox">
+										<p class="user-time mt-2 m-0">
+											${timeCondition(item.waktuPesan)}
+											<i class="fa-solid fa-check-double"></i>
+										</p>	
+									</div>
 								</div>
 							</div>
 						</div>
@@ -787,9 +864,9 @@
 						<div style="margin-top: ${handleMargin('right')}">
 							<div class="user">
 								<div class="d-flex justify-content-end">
-									<div class="user-bubble ${handleFirstClass('right')} d-flex align-items-end">
+									<div class="user-bubble ${handleFirstClass('right')}">
 										<p class="m-0">${item.isi}</p>
-										<p class="user-time mb-0">
+										<p class="user-time m-0">
 											${timeCondition(item.waktuPesan)}
 											<i class="fa-solid fa-check-double"></i>
 										</p>	
@@ -800,6 +877,7 @@
 					`
 				}
 			});
+
 			body.scroll({ top: body.scrollHeight, behavior: 'smooth' });
 		}
 		
@@ -812,11 +890,11 @@
 					if (item.idIsi != '0' && item.idPengguna != idPengguna) {
 						body.innerHTML = `
 							<div id="body-${index}" class="d-flex align-items-end p-0 body-container" style="margin-bottom: ${handleMarginLoadMore('left')}">
-								<div>
-									<div class="body-bubble ${handleFirstClassLoadmore('left')} d-flex align-items-end">
+								<div class="body-bubble ${handleFirstClassLoadmore('left')}">
+									<div class="d-flex align-items-end">
 										<p class="header-name m-0">${item.isi}</p>
-										<p class="body-time mb-0">${timeCondition(item.waktuPesan)}</p>
 									</div>
+									<p class="body-time m-0">${timeCondition(item.waktuPesan)}</p>
 								</div>
 							</div>
 						` + body.innerHTML
@@ -850,10 +928,26 @@
 					} else if (item.idIsi == '0' && item.idPengguna != idPengguna) {
 						body.innerHTML = `
 							<div id="body-${index}" class="d-flex align-items-end p-0 body-container">
-								<div>
-									<div class="body-bubble ${handleFirstClassLoadmore('left')} d-flex align-items-end">
+								<div class="body-bubble ${handleFirstClassLoadmore('left')}">
+									<div class="d-flex align-items-end">
 										<p class="header-name m-0">${item.isi.replaceAll('**', '<br>')}</p>
-										<p class="body-time mb-0">${timeCondition(item.waktuPesan)}</p>
+									</div>
+									<p class="body-time m-0">${timeCondition(item.waktuPesan)}</p>
+								</div>
+							</div>
+						` + body.innerHTML
+					} else if (checkUrl(item.isi)) {
+						body.innerHTML = `
+							<div style="margin-bottom: ${handleMarginLoadMore('right')}">
+								<div class="user">
+									<div class="d-flex justify-content-end">
+										<div class="user-bubble first px-2 ${handleFirstClassLoadmore('right')}">
+											<img src="${item.isi}" alt="Thumbnail" onclick="${toggleLightbox(item.isi)}" data-bs-toggle="modal" data-bs-target="#lightbox">
+											<p class="user-time mt-2 m-0">
+												${timeCondition(item.waktuPesan)}
+												<i class="fa-solid fa-check-double"></i>
+											</p>	
+										</div>
 									</div>
 								</div>
 							</div>
@@ -863,9 +957,9 @@
 							<div style="margin-bottom: ${handleMarginLoadMore('right')}">
 								<div class="user">
 									<div class="d-flex justify-content-end">
-										<div class="user-bubble ${handleFirstClassLoadmore('right')} d-flex align-items-end">
+										<div class="user-bubble ${handleFirstClassLoadmore('right')}">
 											<p class="m-0">${item.isi}</p>
-											<p class="user-time mb-0">
+											<p class="user-time m-0">
 												${timeCondition(item.waktuPesan)}
 												<i class="fa-solid fa-check-double"></i>
 											</p>	
@@ -952,6 +1046,18 @@
 				}
 			}
 			return classNamed
+		}
+
+		const checkUrl = (isi) => {
+			var urlRegex = /(https?:\/\/[^\s]+)/;
+
+			return urlRegex.test(isi)
+		}
+
+		const toggleLightbox = (url) => {
+			const lightboxImg = document.getElementById('lightbox-img')
+			lightboxImg.setAttribute('srcset', url)
+			lightboxImg.setAttribute('src', url)
 		}
 
 		const dateCondition = (time) => {
