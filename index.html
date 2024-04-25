@@ -90,7 +90,6 @@
 		.header img {
 			width: 50px;
 			height: 50px;
-			border-radius: 50%;
 		}
 
 		.header div > div {
@@ -148,6 +147,17 @@
 			margin-left: 8px;
 			border-radius: 8px 8px 8px 8px;
 			gap: 0.2rem;
+		}
+
+		.body-bubble img {
+			width: 224px;
+			height: 180px;
+			border-radius: 8px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			cursor: pointer;
+			object-fit: cover;
 		}
 
 		.body .body-bubble.first {
@@ -363,7 +373,7 @@
 				<div class="d-flex">
 					<!-- Begin::Info Profile -->
 					<!-- <img src="https://dev-stroom.air.id/file/asset/load/jpeg/q84uzdt33t" alt="icon"> -->
-					<img src="icon.jpg" alt="icon">
+					<img src="icon.svg" alt="icon">
 					<!-- End::Info Profile -->
 
 					<div>
@@ -834,7 +844,7 @@
 					})
 				} else if (item.idIsi == '0' && item.idPengguna != idPengguna) {
 					body.innerHTML += `
-						<div id="body-${index}" class="d-flex align-items-end p-0 body-container">
+						<div id="body-${index}" class="d-flex align-items-end p-0 body-container" style="margin-top: ${handleMargin('left')}">
 							<div class="body-bubble ${handleFirstClass('left')}">
 								<div class="d-flex align-items-end">
 									<p class="header-name m-0">${item.isi.replaceAll('**', '<br>')}</p>
@@ -843,7 +853,7 @@
 							</div>
 						</div>
 					`
-				} else if (checkUrl(item.isi)) {
+				} else if (checkUrl(item.isi) && item.idPengguna == idPengguna) {
 					body.innerHTML += `
 						<div style="margin-top: ${handleMargin('right')}">
 							<div class="user">
@@ -856,6 +866,15 @@
 										</p>	
 									</div>
 								</div>
+							</div>
+						</div>
+					`
+				} else if (checkUrl(item.isi) && item.idPengguna == idPengguna) {
+					body.innerHTML += `
+						<div id="body-${index}" class="d-flex align-items-end p-0 body-container" style="margin-top: ${handleMargin('left')}">
+							<div class="body-bubble ${handleFirstClass('left')}">
+								<img src="${item.isi}" alt="Thumbnail" onclick="${toggleLightbox(item.isi)} data-bs-toggle="modal"data-bs-target="#lightbox">
+								<p class="body-time m-0">18:00</p>
 							</div>
 						</div>
 					`
@@ -927,7 +946,7 @@
 						})
 					} else if (item.idIsi == '0' && item.idPengguna != idPengguna) {
 						body.innerHTML = `
-							<div id="body-${index}" class="d-flex align-items-end p-0 body-container">
+							<div id="body-${index}" class="d-flex align-items-end p-0 body-container" style="margin-bottom: ${handleMarginLoadMore('left')}">
 								<div class="body-bubble ${handleFirstClassLoadmore('left')}">
 									<div class="d-flex align-items-end">
 										<p class="header-name m-0">${item.isi.replaceAll('**', '<br>')}</p>
@@ -936,7 +955,7 @@
 								</div>
 							</div>
 						` + body.innerHTML
-					} else if (checkUrl(item.isi)) {
+					} else if (checkUrl(item.isi) && item.idPengguna == idPengguna) {
 						body.innerHTML = `
 							<div style="margin-bottom: ${handleMarginLoadMore('right')}">
 								<div class="user">
@@ -949,6 +968,15 @@
 											</p>	
 										</div>
 									</div>
+								</div>
+							</div>
+						` + body.innerHTML
+					} else if (checkUrl(item.isi) && item.item.idPengguna != idPengguna) {
+						body.innerHTML = `
+							<div id="body-${index}" class="d-flex align-items-end p-0 body-container" style="margin-bottom: ${handleMarginLoadMore('left')}">
+								<div class="body-bubble ${handleFirstClassLoadmore('left')}">
+									<img src="${item.isi}" alt="Thumbnail" onclick="${toggleLightbox(item.isi)} data-bs-toggle="modal"data-bs-target="#lightbox">
+									<p class="body-time m-0">18:00</p>
 								</div>
 							</div>
 						` + body.innerHTML
